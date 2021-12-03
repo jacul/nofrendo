@@ -76,7 +76,7 @@ Uint32 mySDLTimer(Uint32 i)
    }
 }
 
-static int round(double value)
+static int roundInt(double value)
 {
    int upper, lower;
    upper = (int) ceil(value);
@@ -97,8 +97,8 @@ int osd_installtimer(int frequency, void *func, int funcsize, void *counter, int
    UNUSED(countersize);
    UNUSED(funcsize);
 
-   tick_ideal = round(ideal);
-   tick_interval = round(ideal / 10) * 10;
+   tick_ideal = roundInt(ideal);
+   tick_interval = roundInt(ideal / 10) * 10;
 
    SDL_SetTimer(tick_interval, mySDLTimer);
 
